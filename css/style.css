@@ -1,0 +1,741 @@
+@charset "utf-8";
+
+/* common css */
+*{ margin: 0px; padding: 0px; }
+
+html,body {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    font-family:sans-serif;
+}
+
+body
+{
+    font-size: 0.8rem;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+}
+
+div, p, span, i, b, ul, li, img, a
+{
+    box-sizing: border-box;
+}
+
+
+.hidden
+{
+    display: none !important;
+}
+
+.text-omit {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
+.clearfix:after
+{
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.page
+{
+    position: relative;
+    width: 100%;
+    max-width: 768px;
+    height: 100%;
+    margin: 0rem auto;
+    overflow: hidden;
+}
+
+.banner
+{
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    opacity: 1;
+    z-index: 10;
+    overflow: hidden;
+
+    -moz-transition: opacity 2000ms ease-in, height 0ms 2500ms ;
+    -o-transition: opacity 2000ms ease-in, height 0ms 2500ms ;
+    -webkit-transition: opacity 2500ms ease-in, height 0ms 2500ms ;
+    transition: opacity 2000ms ease-in, height 0ms 2500ms ;
+}
+
+.banner img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.banner.show
+{
+    opacity: 0;
+    height: 0;
+}
+
+.slider
+{
+    position: absolute;
+    top:0rem;
+    height: 100%;
+    overflow: auto;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    background-color: #332e4f;
+    box-sizing: border-box;
+}
+
+.slider-left
+{
+    left: -75%;
+    width: 75%;
+}
+
+.slider-left .slider-close
+{
+    position: absolute;
+    top: 0.5rem;
+    right: 1.0rem;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../images/nav_Cancel.png);
+}
+
+.slider-right
+{
+    right: -30%;
+    width: 30%;
+}
+
+.container
+{
+    position: relative;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
+    width: 100%;
+    height: 100%;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}
+
+.container.left
+{
+    left: 75%;
+}
+
+.container.right
+{
+    left: -30%;
+}
+
+.page-shadow
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    opacity: 0;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}
+
+.page-shadow.show
+{
+    display: inline-block;
+    opacity: 0.3;
+    z-index: 10;
+}
+
+.wraper
+{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* 上部菜单栏 */
+.menu
+{
+    position: relative;
+    height: 2.4rem;
+    background-color: #ff2534;
+}
+
+.menu .menu-item
+{
+    position: absolute;
+    top: 0rem;
+    width: 3rem;
+    height: 100%;
+    line-height: 2.4rem;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+.menu .menu-item.menu-left
+{
+    left: 0rem!important;
+    font-size: 0.9rem;
+}
+
+.menu .menu-item.menu-right
+{
+    right: 0rem!important;
+    font-size: 0.9rem;
+}
+
+.menu .items
+{
+    margin:0px 3rem;
+    text-align: center;
+    height: 100%;
+    line-height: 2.4rem;
+}
+
+.menu .items span
+{
+    position: relative;
+    margin-right: 1rem;
+    color: white;
+}
+
+.menu .items span b
+{
+    font-weight: normal!important;
+}
+
+.menu .items span i
+{
+    position: absolute;
+    top: -0.2rem;
+    right:-0.8rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(../images/nav_Cancel.png);
+    background-size: 100% 100%;
+}
+
+/* 左侧菜单栏 */
+.area-list
+{
+    width: 100%;
+}
+.area-list li
+{
+    margin-bottom: 0.5rem;
+}
+
+.area-list li .area-type
+{
+    color: white;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #5c5871;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.area-list li .areas
+{
+    padding: 0.3rem 0.75rem;
+}
+
+.area-list li .areas span
+{
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    color: #d7d7d7;
+    border:1px solid #d7d7d7;
+    border-radius: 0.2rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.15rem;
+    font-size: 0.7rem;
+}
+
+.area-list li .areas span.active
+{
+    border:1px solid #ff2534;
+    background-color: #ff2534;
+}
+
+/* 右侧菜单栏 */
+.type-list li
+{
+    margin-bottom: 1.0rem;
+    text-align: center;
+}
+
+.type-list li .type-img
+{
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid transparent;
+    border-radius: 1.5rem;
+    margin: 0rem auto;
+}
+
+.type-list li.active .type-img
+{
+    border:1px solid #d44c5b;
+}
+
+
+.type-list li .type-name
+{
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    margin-top: 0.3rem;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    color: #d7d7d7;
+}
+
+/* 弹出框 */
+.modal-bg
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+}
+
+.modal-bg .modal
+{
+    position: absolute;
+    left:4%;
+    top: 25%;
+    width: 92%;
+    border-radius: 0.4rem;
+}
+
+.modal-bg .modal .modal-head
+{
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+}
+
+.modal-bg .modal .modal-head .modal-close
+{
+    display: inline-block;
+    width: 2.0rem;
+    height: 2.0rem;
+    background: url(../images/img_btn_close.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.modal-bg .modal .modal-body
+{
+    position: relative;
+}
+
+.modal-bg .modal .modal-body > img
+{
+    width: 100%;
+    height: auto;
+}
+
+
+.modal-bg .modal .modal-body  .modal-content
+{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+}
+
+.match-title
+{
+    position: absolute;
+    top: 71%;
+    left: 14%;
+    width: 72%;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+}
+
+.match-sub
+{
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+    text-align: center;
+}
+
+.match-link
+{
+    color:blue;
+    text-decoration: underline;
+}
+
+/* 正文部分 */
+.content
+{
+    position: relative;
+    min-height: calc(100% - 2.4rem);
+}
+
+.content .month-select
+{
+    position: relative;
+    padding: 0.75rem 0.75rem 1.0rem;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #f5f4f4;
+}
+
+.content .month-select .month
+{
+    display: inline-block;
+    width: 4.0rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    border-radius: 0.7rem;
+    background-color: #ff2534;
+    color:white;
+    margin: 0 0.5rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+.content .month-select .mode
+{
+    position: absolute;
+    top: 0.45rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    background: url(../images/btn_style.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select .mode.list-disp
+{
+    background: url(../images/btn_style_pre.png);
+}
+
+.content .month-select > .month-prev
+{
+    position: relative;
+    top: 0.4rem;
+    display: inline-block;
+    width: 1.0rem;
+    height: 1.0rem;
+    background: url(../images/btn_time_left.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select > .month-prev.disabled
+{
+    background: url(../images/btn_time_left1.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select > .month-next
+{
+    position: relative;
+    top: 0.3rem;
+    display: inline-block;
+    width: 1.0rem;
+    height: 1.0rem;
+    background: url(../images/btn_time_right.png);
+    background-size: 100% 100%;
+
+}
+
+.content .month-select > .month-next.disabled
+{
+    background: url(../images/btn_time_right1.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select .month-wraper
+{
+    position: absolute;
+    top: 3.2rem;
+    width: calc(100% - 1.5rem);
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 0.2rem #dddddd;
+    z-index: 20;
+}
+
+.content .month-select .month-wraper .arraw
+{
+    position: absolute;
+    top: -0.70rem;
+    left: calc( 50% - 0.7rem);
+    width: 0rem;
+    height: 0rem;
+    border-top: 0rem;
+    border-bottom: 0.8rem solid white;
+    border-left: 0.8rem solid transparent;
+    border-right: 0.8rem solid transparent;
+
+}
+
+.content .month-select .month-wraper .year-area
+{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.content .month-select .month-wraper .year-area .year
+{
+    display: inline-block;
+    height: 1.0rem;
+    line-height: 1.0rem;
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0rem 0.5rem;
+}
+
+.content .month-select .month-wraper .year-area .year-prev
+{
+    position: relative;
+    top: 0.2rem;
+    display: inline-block;
+    width: 1.0rem;
+    height: 1.0rem;
+    background: url(../images/btn_year_left.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select .month-wraper .year-area .year-prev.disabled
+{
+    background: url(../images/btn_year_left_pre.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select .month-wraper .year-area .year-next
+{
+    position: relative;
+    top: 0.2rem;
+    display: inline-block;
+    width: 1.0rem;
+    height:1.0rem;
+    background: url(../images/btn_year_right.png);
+    background-size: 100% 100%;
+}
+
+.content .month-select .month-wraper .year-area .year-next.disabled
+{
+    background: url(../images/btn_year_right_pre.png);
+    background-size: 100% 100%;
+}
+
+
+.content .month-select .month-wraper .month-area li
+{
+    float: left;
+    width: 16.666666%;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/*日历*/
+.cldr
+{
+    margin: 0;
+}
+.cldr .cldr-table
+{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.cldr .cldr-table .cldr-head
+{
+    background-color: #f5f4f4;
+    height: 2.0rem;
+    line-height: 2.0rem;
+}
+
+.cldr .cldr-table .cldr-head li, .cldr .cldr-table .cldr-panel .cldr-list li
+{
+    float: left;
+    width: 14.2857%;
+    border-bottom: 0.05rem solid#e6e6e6;
+    font-size: 0.8rem;
+}
+
+.cldr .cldr-table .cldr-head li:first-child,
+.cldr .cldr-table .cldr-head li:last-child,
+.cldr .cldr-table .cldr-panel .cldr-list li:first-child,
+.cldr .cldr-table .cldr-panel .cldr-list li:last-child
+{
+    color:#a0a0a0;
+}
+
+.cldr .cldr-table .cldr-panel .cldr-list li
+{
+    padding: 0.75rem 0;
+    vertical-align: middle;
+}
+
+.cldr .cldr-table .cldr-panel .cldr-list li .day
+{
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    border-radius: 0.7rem;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 0.3rem;
+}
+
+.cldr .cldr-table .cldr-panel .cldr-list li .day.will
+{
+    color:white;
+    background-color: #ff2e35;
+}
+
+.cldr .cldr-table .cldr-panel .cldr-list li .day.over
+{
+    color:white;
+    background-color: #ede8e8;
+}
+
+.cldr .cldr-table .cldr-panel .cldr-list li .day.open
+{
+    color:white;
+    background-color: #b21c23!important;
+}
+
+.cldr .cldr-table .cldr-panel .cldr-list li .lunar
+{
+    display: inline-block;
+    width: 100%;
+    height: 1.0rem;
+    line-height: 1.0rem
+}
+
+.cldr .cldr-table .cldr-panel .sub-list
+{
+    width: 100%;
+    max-height: 0rem;
+    position: relative;
+    top: -1.8rem;
+    overflow: hidden;
+    margin-bottom: -1.8rem;
+    -moz-transition: height 400ms ease-in-out;
+    -o-transition: height 400ms ease-in-out;
+    -webkit-transition: height 400ms ease-in-out;
+    transition: height 400ms ease-in-out;
+}
+
+.cldr .cldr-table .cldr-panel .sub-list.show
+{
+    max-height: 10rem;
+}
+
+.cldr .cldr-table .cldr-panel .sub-list li
+{
+    color:white;
+    padding: 0.75rem 1rem;
+}
+
+.cldr .cldr-table .cldr-panel .sub-list li:nth-child(odd )
+{
+    background-color:#b21c23;
+}
+.cldr .cldr-table .cldr-panel .sub-list li:nth-child(even )
+{
+    background-color:#ff2534;
+}
+
+.cldr .cldr-table .cldr-panel .sub-list li .name
+{
+    float: left;
+    width: 88%;
+    text-align: left;
+}
+
+.cldr .cldr-table .cldr-panel .sub-list li .link
+{
+    float: right;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/list_race.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+/*列表*/
+.list
+{
+    margin-bottom: 2rem;
+}
+
+.list .list-group
+{
+
+}
+
+.list .list-group > li
+{
+    position: relative;
+    border-bottom: 0.05rem solid #cccccc;
+    box-shadow: 0 0.2rem 0.2rem #dddddd;
+    padding: 0 0.8rem;
+}
+
+.list .list-group > li:nth-child(odd)
+{
+    background-color: #f5f5f5;
+}
+
+.list .list-group > li:nth-child(even)
+{
+    background-color: #eeeeee;
+}
+
+.list-group .list-date
+{
+    position: absolute;
+    top:0.5rem;
+    left:0.8rem;
+    color:#ff2534;
+    font-weight: bold;
+}
+
+.list-group .list-items > li
+{
+    padding: 0.5rem 1.5rem;
+}
+
+.list-group .list-items > li + li
+{
+    border-top: 0.05rem solid white;
+}

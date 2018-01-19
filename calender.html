@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/area.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="page banner"></div>
+<div class="page">
+    <div class="container">
+        <div class="slider slider-left">
+            <i class="slider-close" onclick="hideArea()"></i>
+            <ul class="area-list"></ul>
+        </div>
+
+        <div class="slider slider-right">
+            <ul class="type-list">
+                <li onclick="changeType(this,'a', 'caa')">
+                    <img class="type-img" src="images/rightbar_Kim.png" alt=""/>
+                    <div class="type-name">金牌赛事</div>
+                </li>
+                <li onclick="changeType(this,'b', 'caa')">
+                    <img class="type-img" src="images/rightbar_Silver.png" alt=""/>
+                    <div class="type-name">银牌赛事</div>
+                </li>
+                <li onclick="changeType(this,'c', 'caa')">
+                    <img class="type-img" src="images/rightbar_Copper.png" alt=""/>
+                    <div class="type-name">铜牌赛事</div>
+                </li>
+                <li onclick="changeType(this,'a', 'ab')">
+                    <img class="type-img" src="images/rightbar_A.png" alt=""/>
+                    <div class="type-name">A类赛事</div>
+                </li>
+                <li onclick="changeType(this,'b', 'ab')">
+                    <img class="type-img" src="images/rightbar_B.png" alt=""/>
+                    <div class="type-name">B类赛事</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="wraper">
+            <div class="menu">
+                <a class="menu-item menu-left" href="javascript: selectArea()">地区</a>
+                <a class="menu-item menu-right" href="javascript: selectType()">分类</a>
+                <div class="items">
+                    <span class="item-area hidden"><b pid=""></b><i onclick="clearArea()"></i></span>
+                    <span class="item-type hidden"><b type="" tid=""></b><i onclick="clearType()"></i></span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="page-shadow"></div>
+                <div class="month-select">
+                    <span class="mode" mode="calendar" onclick="switchMode()"></span>
+                    <span class="month-prev" onclick="prevMonth()"></span>
+                    <span class="month" onclick="selectMonth()"></span>
+                    <span class="month-next" onclick="nextMonth()"></span>
+                    <div class="month-wraper hidden">
+                        <i class="arraw"></i>
+                        <div class="year-area">
+                            <span class="year-prev" onclick="prevYear()"></span>
+                            <span class="year" year=""></span>
+                            <span class="year-next" onclick="nextYear()"></span>
+                        </div>
+                        <ul class="month-area">
+                            <li month="01">1月</li><li month="02">2月</li><li month="03">3月</li>
+                            <li month="04">4月</li><li month="05">5月</li><li month="06">6月</li>
+                            <li month="07">7月</li><li month="08">8月</li><li month="09">9月</li>
+                            <li month="10">10月</li><li month="11">11月</li><li month="12">12月</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cldr">
+                    <div class="cldr-table">
+                        <ul class="cldr-head">
+                            <li>日</li>
+                            <li>一</li>
+                            <li>二</li>
+                            <li>三</li>
+                            <li>四</li>
+                            <li>五</li>
+                            <li>六</li>
+                        </ul>
+                        <div id="cldr-panel" class="cldr-panel">
+                        </div>
+                    </div>
+                </div>
+                <div class="list">
+                    <ul class="list-group">
+                        <li>
+                            <span class="list-date">01</span>
+                            <ul class="list-items">
+                                <li>2017 牛首山马拉松</li>
+                                <li>2017 牛首山马拉松</li>
+                                <li>2017 牛首山马拉松</li>
+                                <li>2017 牛首山马拉松</li>
+                                <li>2017 牛首山马拉松</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="list-date">02</span>
+                            <ul class="list-items">
+                                <li>2017 成都马拉松</li>
+                                <li>2017 成都马拉松</li>
+                                <li>2017 成都马拉松</li>
+                                <li>2017 成都马拉松</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="list-date">08</span>
+                            <ul class="list-items">
+                                <li>2017 北京马拉松</li>
+                                <li>2017 北京马拉松</li>
+                                <li>2017 北京马拉松</li>
+                                <li>2017 北京马拉松</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-bg hidden">
+    <div class="modal">
+        <div class="modal-head">
+            <i class="modal-close" onclick="hideModal()"></i>
+        </div>
+        <div class="modal-body">
+            <img src="images/img_xq_1.png" alt=""/>
+            <div class="modal-content">
+                <div class="match-sub text-omit addr">地点：南京 江宁区</div>
+                <div class="match-sub text-omit date">时间：2017年4月16日</div>
+                <div class="match-sub text-omit event">项目：全程/半程/乐跑</div>
+                <div class="match-sub text-omit num">名额：3000人/3000人/5000人</div>
+                <div class="match-sub text-omit website">官网：<a class="website" href="http://www.tyjianhe.com">www.tyjianhe.com</a></div>
+            </div>
+            <div class="match-title text-omit name"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+</body>
+</html>
